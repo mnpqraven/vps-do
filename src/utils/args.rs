@@ -20,4 +20,5 @@ pub enum Commands {
 pub enum RepoCommands {
     List,
     Install,
+    Update,
 }

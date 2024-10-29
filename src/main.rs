@@ -1,4 +1,7 @@
-use actions::{remote_repo::clone_single, repo_list::repo_list};
+use actions::{
+    remote_repo::{clone_single, pull_single},
+    repo_list::repo_list,
+};
 use clap::Parser;
 use utils::args::{CliArgs, Commands, RepoCommands};
 
@@ -23,6 +26,13 @@ fn main() {
                 clone_single(&slug);
             }
             println!("cloning done");
+        }
+        Some(Commands::Repo(RepoCommands::Update)) => {
+            let list = repo_list();
+            for slug in list {
+                pull_single(&slug);
+            }
+            println!("pulling done");
         }
         None => {}
     }
