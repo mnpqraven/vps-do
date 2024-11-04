@@ -18,7 +18,7 @@ fn main() {
             let list = repo_list();
             dbg!(list);
         }
-        Some(Commands::Repo(RepoCommands::Install)) => {
+        Some(Commands::Repo(RepoCommands::Clone)) => {
             // for now clone
             // TODO: parent fn handling deciding between clone or pull
             let list = repo_list();
@@ -27,7 +27,7 @@ fn main() {
             }
             println!("cloning done");
         }
-        Some(Commands::Repo(RepoCommands::Update)) => {
+        Some(Commands::Repo(RepoCommands::Pull)) => {
             let list = repo_list();
             for slug in list {
                 pull_single(&slug);

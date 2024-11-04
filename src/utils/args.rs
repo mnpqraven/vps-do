@@ -19,6 +19,6 @@ pub enum Commands {
 #[derive(Subcommand, Debug)]
 pub enum RepoCommands {
     List,
-    Install,
-    Update,
+    Clone,
+    Pull,
 }
